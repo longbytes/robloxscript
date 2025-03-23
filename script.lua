@@ -1,40 +1,45 @@
 -- Random seed generator
 
 if getgenv().IsLoaded then
-	return
+    -- Reset IsLoaded to false for re-execution
+    getgenv().IsLoaded = false
+end
+
+if getgenv().IsLoaded then
+    return
 end
 
 getgenv().IsLoaded = true
 
 function RandomNameGenerator()
-	local seed = math.random(0, 99999999)
-	print("Generated Seed: " .. seed)
+    local seed = math.random(0, 99999999)
+    print("Generated Seed: " .. seed)
 
-	local digits = {}
-	for digit in tostring(seed):gmatch("%d") do
-		table.insert(digits, tonumber(digit))
-	end
+    local digits = {}
+    for digit in tostring(seed):gmatch("%d") do
+        table.insert(digits, tonumber(digit))
+    end
 
-	local alphabet = {
-		["ℵ"] = 0, ["∑"] = 1, ["∛"] = 2, ["∴"] = 3,
-		["⟶"] = 4, ["∌"] = 5, ["⊕"] = 6, ["⋈"] = 7,
-		["⅞"] = 8, ["№"] = 9
-	}
+    local alphabet = {
+        ["ℵ"] = 0, ["∑"] = 1, ["∛"] = 2, ["∴"] = 3,
+        ["⟶"] = 4, ["∌"] = 5, ["⊕"] = 6, ["⋈"] = 7,
+        ["⅞"] = 8, ["№"] = 9
+    }
 
-	local name = ""
-	for _, digit in ipairs(digits) do
-		for letter, value in pairs(alphabet) do
-			if value == digit then
-				name ..= letter
-				break
-			end
-		end
-	end
+    local name = ""
+    for _, digit in ipairs(digits) do
+        for letter, value in pairs(alphabet) do
+            if value == digit then
+                name ..= letter
+                break
+            end
+        end
+    end
 
-	return name
+    return name
 end
 
-local ScriptUi = Instance.new("GuiMain")
+local ScriptUi = Instance.new("ScreenGui")
 local ScreenWidth = Instance.new("Frame")
 local HolderFrame = Instance.new("Frame")
 local ContentFrame = Instance.new("Frame")
@@ -85,5 +90,5 @@ UiDrag.ActivatedCursorIcon = "rbxassetid://0"
 UiDrag.CursorIcon = "rbxassetid://0"
 
 ScriptUi.Destroyed:Connect(function()
-	getgenv().IsLoaded = false
+    getgenv().IsLoaded = false
 end)
