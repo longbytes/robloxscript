@@ -1,4 +1,11 @@
 -- Random seed generator
+
+if getgenv().IsLoaded then
+	return
+end
+
+getgenv().IsLoaded = true
+
 function RandomNameGenerator()
 	local seed = math.random(0, 99999999)
 	print("Generated Seed: " .. seed)
@@ -70,3 +77,14 @@ ContentFrame.Position = UDim2.new(0.5, 0, 0.537500024, 0)
 ContentFrame.Size = UDim2.new(1, 0, 0.925000012, 0)
 
 UICorner.Parent = HolderFrame
+
+task.spawn(function()
+	while task.wait() do
+		if ScriptUi then
+			getgenv().IsLoaded = true
+		else
+			getgenv().IsLoaded = false
+		end
+
+	end
+end)
