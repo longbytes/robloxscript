@@ -30,7 +30,7 @@ function RandomNameGenerator()
 			end
 		end
 	end
-	
+
 	return name
 end
 
@@ -84,13 +84,6 @@ UiDrag.Parent = HolderFrame
 UiDrag.ActivatedCursorIcon = "rbxassetid://0"
 UiDrag.CursorIcon = "rbxassetid://0"
 
-task.spawn(function()
-	while task.wait() do
-		if ScriptUi then
-			getgenv().IsLoaded = true
-		else
-			getgenv().IsLoaded = false
-		end
-
-	end
+ScriptUi.Destroyed:Connect(function()
+	getgenv().IsLoaded = false
 end)
