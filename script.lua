@@ -86,4 +86,5 @@ UiDrag.CursorIcon = "rbxassetid://0"
 
 ScriptUi.Destroyed:Connect(function()
     getgenv().IsLoaded = false
+    print("deleted")
 end)
