@@ -1,11 +1,6 @@
 -- Random seed generator
 
 if getgenv().IsLoaded then
-    -- Reset IsLoaded to false for re-execution
-    getgenv().IsLoaded = false
-end
-
-if getgenv().IsLoaded then
     return
 end
 
