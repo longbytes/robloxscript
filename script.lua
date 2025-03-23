@@ -78,6 +78,12 @@ ContentFrame.Size = UDim2.new(1, 0, 0.925000012, 0)
 
 UICorner.Parent = HolderFrame
 
+local UiDrag = Instance.new("UIDragDetector")
+UiDrag.Parent = HolderFrame
+
+UiDrag.ActivatedCursorIcon = "rbxassetid://0"
+UiDrag.CursorIcon = "rbxassetid://0"
+
 task.spawn(function()
 	while task.wait() do
 		if ScriptUi then
