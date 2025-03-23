@@ -9,9 +9,9 @@ function RandomNameGenerator()
 	end
 
 	local alphabet = {
-		["a"] = 0, ["b"] = 1, ["c"] = 2, ["d"] = 3,
-		["e"] = 4, ["f"] = 5, ["g"] = 6, ["h"] = 7,
-		["i"] = 8, ["j"] = 9
+		["ℵ"] = 0, ["∑"] = 1, ["∛"] = 2, ["∴"] = 3,
+		["⟶"] = 4, ["∌"] = 5, ["⊕"] = 6, ["⋈"] = 7,
+		["⅞"] = 8, ["№"] = 9
 	}
 
 	local name = ""
@@ -27,17 +27,14 @@ function RandomNameGenerator()
 	return name
 end
 
-local ok = Instance.new("Folder")
-local ScriptUi = Instance.new("ScreenGui")
+local ScriptUi = Instance.new("GuiMain")
 local ScreenWidth = Instance.new("Frame")
 local HolderFrame = Instance.new("Frame")
 local ContentFrame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
 
-ok.Name = RandomNameGenerator()
 ScriptUi.Name = RandomNameGenerator()
-ok.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScriptUi.Parent = ok
+ScriptUi.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScriptUi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScriptUi.DisplayOrder = 1000000020
 ScriptUi.ResetOnSpawn = false
